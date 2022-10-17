@@ -34,6 +34,8 @@ export const getPosts = async () => {
   `
 
   const result = await request(graphqlAPI, query)
+  //console.log(result.postsConnection.edges)
+
   return result.postsConnection.edges
 }
 
@@ -54,7 +56,7 @@ export const getRecentPosts = async () => {
     }
   `
   const result = await request(graphqlAPI, query)
-  console.log(result.posts)
+  
   return result.posts
 }
 
