@@ -6,9 +6,6 @@ import { getPosts, getPostDetails } from '../../services';
 //import { AdjacentPosts } from '../../sections';
 
 const PostDetails = ({ post }) => {
-
-  console.log(post)
-
   return (
     <>
       <div className="container mx-auto px-10 mb-8">
