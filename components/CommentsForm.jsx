@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
-import {submitComment} from '../services'
+import { submitComment } from '../services'
 
 const CommentsForm = ({ slug }) => {
   const [error, setError] = useState(false)
@@ -12,25 +12,25 @@ const CommentsForm = ({ slug }) => {
   const emailInput = useRef()
   const dataStoredInput = useRef()
 
-  useEffect(()=> {
+  useEffect(() => {
     nameInput.current.value = window.localStorage.getItem('name')
-    nameInput.current.value = window.localStorage.getItem('email')
+    emailInput.current.value = window.localStorage.getItem('email')
   }, [])
 
   const handleCommentSubmission = () => {
     setError(false)
 
-    const {value: comment} = commentInput.current
-    const {value: name} = nameInput.current
-    const {value: email} = emailInput.current
-    const {checked: dataStored} = dataStoredInput.current
-    
-    if (!comment|| !name || !email ) {
+    const { value: comment } = commentInput.current
+    const { value: name } = nameInput.current
+    const { value: email } = emailInput.current
+    const { checked: dataStored } = dataStoredInput.current
+
+    if (!comment || !name || !email) {
       setError(true)
       return
     }
 
-    const commentObj = {name, email, comment, slug}
+    const commentObj = { name, email, comment, slug }
 
     if (dataStored) {
       window.localStorage.setItem('name', name)
@@ -41,10 +41,10 @@ const CommentsForm = ({ slug }) => {
     }
 
     submitComment(commentObj)
-      .then((res)=>{
+      .then((res) => {
         setShowSuccessMessage(true)
 
-        setTimeout(()=>{
+        setTimeout(() => {
           setShowSuccessMessage(false)
         }, 3000)
       })
@@ -52,40 +52,36 @@ const CommentsForm = ({ slug }) => {
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4">
-        Comments
-      </h3>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+      <h3 className="text-xl mb-8 font-semibold border-b pb-4">Leave a Reply</h3>
+      <div className="grid grid-cols-1 gap-4 mb-4">
         <textarea ref={commentInput}
-          className="p-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-fray-200 bg-gray-100 text-gray-600"
+          className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-fray-200 bg-gray-100 text-gray-600"
           placeholder="Comment"
           name="comment"
         />
       </div>
-      <div className="grid grid-cols-1 gap-4 mb-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
         <input
           type="text" ref={nameInput}
-          className="py-2 outline-none w-full rounded-lg focus:ring-2 focus:ring-fray-200 bg-gray-100 text-gray-600"
+          className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-fray-200 bg-gray-100 text-gray-600"
           placeholder="Name"
           name="name"
         />
-      </div>
-      <div className="grid grid-cols-1 gap-4 mb-4">
         <input
           type="text" ref={emailInput}
-          className="py-2 outline-none w-full rounded-lg focus:ring-2 focus:ring-fray-200 bg-gray-100 text-gray-600"
+          className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-fray-200 bg-gray-100 text-gray-600"
           placeholder="Email"
           name="email"
         />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-1 gap-4 mb-4">
         <div>
-          <input ref={dataStoredInput} type="checkbox" id="storeData" name="storeData"/>
-          <label text-gray-500 cursor-pointer>Save my email and name for the next time I comment</label>
+          <input ref={dataStoredInput} type="checkbox" id="storeData" name="storeData" value="true" />
+          <label className="text-gray-500 cursor-pointer ml-2" htmlFor="storeData">Save my email and name for the next time I comment</label>
         </div>
       </div>
 
-      {error && <p className="text-xs text-red-200">All fields are required.</p>}
+      {error && <p className="text-xs text-red-500">All fields are required.</p>}
       <div className="mt-8">
         <button
           type="button"

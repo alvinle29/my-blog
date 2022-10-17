@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 
-const PostDetail = () => {
+const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -76,7 +76,7 @@ const PostDetail = () => {
         </h1>
         {post.content.raw.children.map((typeObj, index) => {
           const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item))
-          
+
           return getContentFragment(index, children, typeObj, typeObj.type)
         })}
       </div>
