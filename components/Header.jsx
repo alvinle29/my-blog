@@ -48,11 +48,10 @@ const Header = () => {
             >
               <Menu.Items key="list" className='origin-top-right absolute right-0 mt-2 w-52 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none'>
                 {categories.map((category) => (
-                  <div className='py-1'>
-                    <Menu.Item key={category.name}>
+                  <div className='py-1' key={category.name}>
+                    <Menu.Item >
                       {({ active }) => (
                         <a
-                          key={category.name}
                           href={`/category/${category.slug}`}
                           className={classNames(
                             active
