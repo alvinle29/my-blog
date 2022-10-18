@@ -35,7 +35,6 @@ export const getPosts = async () => {
   `
 
   const result = await request(graphqlAPI, query)
-  //console.log(result.postsConnection.edges)
 
   return result.postsConnection.edges
 };
@@ -95,6 +94,34 @@ export const getCategories = async () => {
   const result = await request(graphqlAPI, query)
 
   return result.categories
+}
+
+export const getMyInfo = async () => {
+  const query = gql`
+    query GetInfo() {
+      authors (
+        last: 1
+      ) {
+        name
+        photo {
+          url
+        }
+        bio
+        introduction {
+          raw
+        }
+        facebookLink
+        instagramLink1
+        instagramLink2
+        linkedInLink
+        githubLink
+      }
+    }
+  `
+
+  const result = await request(graphqlAPI, query)
+
+  return result.authors[0]
 }
 
 export const getPostDetails = async (slug) => {
@@ -194,4 +221,29 @@ export const getCategoryPost = async (slug) => {
   const result = await request(graphqlAPI, query, { slug });
 
   return result.postsConnection.edges;
+};
+
+export const getFeaturedPosts = async () => {
+  const query = gql`
+    query GetCategoryPost() {
+      posts(where: {featuredPost: true}) {
+        author {
+          name
+          photo {
+            url
+          }
+        }
+        featuredImage {
+          url
+        }
+        title
+        slug
+        createdAt
+      }
+    }   
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.posts;
 };
