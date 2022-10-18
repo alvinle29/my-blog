@@ -9,6 +9,8 @@ export {default as CommentsForm} from './CommentsForm'
 export {default as MyInfo} from './MyInfo'
 export {default as AboutMeInfo} from './AboutMeInfo'
 export {default as FeaturedPostCard} from './FeaturedPostCard'
+export {default as Loader} from './Loader'
+
 
 
 
