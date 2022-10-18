@@ -20,18 +20,18 @@ const Header = () => {
     <div className="container mx-auto px-10 mb-8">
       <div className="border-b w-full inline-block border-blue-400 py-8">
         <div className="md:float-left block">
-          <Link href="/">
+          <Link href="/" key="home">
             <span className="cursor-pointer font-bold text-4x; text-white">
               AlvinLe
             </span>
           </Link>
         </div>
         <div className="hidden md:float-left md:contents">
-          <Link href="/aboutme" >
+          <Link href="/aboutme" key="aboutme" >
             <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">About Me</span>
           </Link>
           <Menu as='div' className='relative md:float-right'>
-            <Menu.Button className="mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">
+            <Menu.Button key="blogs" className="mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">
               Blogs
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="md:float-right mt-1 align-middle ml-1 h-4 w-4">
                 <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clipRule="evenodd" />
@@ -46,12 +46,13 @@ const Header = () => {
               leaveFrom='transform opacity-100 scale-100'
               leaveTo='transform opacity-0 scale-95'
             >
-              <Menu.Items className='origin-top-right absolute right-0 mt-2 w-52 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none'>
+              <Menu.Items key="list" className='origin-top-right absolute right-0 mt-2 w-52 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none'>
                 {categories.map((category) => (
                   <div className='py-1'>
-                    <Menu.Item>
+                    <Menu.Item key={category.name}>
                       {({ active }) => (
                         <a
+                          key={category.name}
                           href={`/category/${category.slug}`}
                           className={classNames(
                             active
