@@ -14,7 +14,7 @@ const AboutMeInfo = () => {
           className="object-top h-full w-full rounded-t-lg"
         />
       </div>
-      <p className="mb-8"> Nonsense</p>
+      <p className="mb-8">Nonsense</p>
     </div >
   )
 }
