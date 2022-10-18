@@ -8,7 +8,7 @@ const MyInfo = () => {
   useEffect(() => {
     getMyInfo()
       .then((newInfo) => setInfo(newInfo))
-  }, 1)
+  }, [])
 
   return (
     <div className="bg-white shadow=lg rounded-lg p-8 mb-4">

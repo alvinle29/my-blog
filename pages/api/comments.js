@@ -19,14 +19,6 @@ export default async function comments(req, res) {
       createComment(data: {name: $name, email: $email, comment: $comment, post: { connect: { slug: $slug } } }) { id }
     }
   `
-
-  try {
-    console.log(req.body)
-
-    const result = await graphQLClient.request(query, req.body)
-    return res.status(200).send(result)
-
-  } catch (error) {
-    console.log(error)
-  }
+  const result = await graphQLClient.request(query, req.body)
+  return res.status(200).send(result)
 }
