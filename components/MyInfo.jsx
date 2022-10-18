@@ -19,6 +19,8 @@ const MyInfo = () => {
         <img
           src={info.photo?.url}
           alt={info.name}
+          height="100px"
+          width="60px"
           className="object-top h-full w-full rounded-full"
         />
       </div>
