@@ -64,28 +64,11 @@ const Header = () => {
                         </a>
                       )}
                     </Menu.Item>
-                    {/*<Menu.Item
-                      as="a"
-                      key={category.slug}
-                      href={`/category/${category.slug}`}
-                      className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
-                    >
-                      {category.name}
-                    </Menu.Item>*/}
                   </div>
-
                 ))}
               </Menu.Items>
             </Transition>
           </Menu>
-
-          {/*categories.map((category) => (
-            <Link key={category.slug} href={`/category/${category.slug}`}>
-              <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">
-                {category.name}
-              </span>
-            </Link>
-          ))*/}
         </div>
       </div>
     </div>
