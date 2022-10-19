@@ -52,7 +52,7 @@ const CommentsForm = ({ slug }) => {
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4">Để lại bình luận hen cạ nhà ^^</h3>
+      <h3 className="text-xl mb-8 font-semibold border-b pb-4">để lại bình luận hen cạ nhà ^^</h3>
       <div className="grid grid-cols-1 gap-4 mb-4">
         <textarea ref={commentInput}
           className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-fray-200 bg-gray-100 text-gray-600"
@@ -90,7 +90,7 @@ const CommentsForm = ({ slug }) => {
         >
           Post Comment
         </button>
-        {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-400">Comment Submitted for Review.</span>}
+        {showSuccessMessage && <span className="text-l float-left font-semibold mt-3 text-green-300">Comment Submitted for Review.</span>}
       </div>
     </div>
   )
