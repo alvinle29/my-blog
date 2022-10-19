@@ -19,10 +19,10 @@ const Header = () => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <div className="border-b w-full inline-block border-blue-400 py-8">
-        <div className="md:float-left block">
+        <div className="md:float-left md:contents block">
           <Link href="/" key="home">
-            <span className="cursor-pointer font-bold text-4x; text-white">
-              AlvinLe
+            <span className="cursor-pointer text-3xl text-white">
+              chú bé ngu ngục
             </span>
           </Link>
         </div>
