@@ -5,7 +5,7 @@ import Head from "next/head"
 import { getCategories, getCategoryPost } from '../../services'
 import { PostCard, Categories, Loader } from '../../components'
 
-const CategoryPost = ({ posts }) => {
+const CategoryPost = ({ posts, params }) => {
 
   const router = useRouter()
 
@@ -18,7 +18,7 @@ const CategoryPost = ({ posts }) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
           <Head>
-            <title>{posts[0].node.categories[0].name}</title>
+            <title>{params.slug.charAt(0).toUpperCase() + params.slug.slice(1)}</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           </Head>
           {posts.map((post, index) => (
@@ -40,7 +40,7 @@ export async function getStaticProps({ params }) {
   const posts = await getCategoryPost(params.slug)
 
   return {
-    props: { posts },
+    props: { posts, params },
   }
 }
 
