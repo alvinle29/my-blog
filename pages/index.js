@@ -7,6 +7,7 @@ export default function Home({ posts }) {
     <div className="container mx-auto px-10 mb-8">
       <Head>
         <title>chú bé ngu ngục</title>
+        <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <FeaturedPosts />
