@@ -27,6 +27,8 @@ const AboutMeInfo = () => {
         return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'heading-four':
         return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+      case 'link':
+        return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'image':
         return (
           <img
@@ -49,24 +51,25 @@ const AboutMeInfo = () => {
       .then((newInfo) => setInfo(newInfo))
   }, [])
 
+  console.log(info.introduction?.raw.children)
+
   return (
     <div className="bg-white shadow=lg rounded-lg p-8 mb-8">
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4 text-center">
-        About Me
+      <h3 className="text-3xl mb-8 border-b pb-4 font-medium text-center">
+        About me
       </h3>
-      <div className="relative overflow-hidden shadow-md mb-6">
+      {/*<div className="relative overflow-hidden shadow-md mb-6 invisible">
         <img
           src={info.photo?.url}
           alt={info.name}
           className="object-top h-full w-full rounded-t-lg"
         />
-      </div>
-      <p className="mb-8">Nonsense</p>
+      </div>*/}
       {info.introduction?.raw.children.map((typeObj, index) => {
-          const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item))
+        const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item))
 
-          return getContentFragment(index, children, typeObj, typeObj.type)
-        })}
+        return getContentFragment(index, children, typeObj, typeObj.type)
+      })}
     </div >
   )
 }
