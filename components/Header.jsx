@@ -22,7 +22,7 @@ const Header = () => {
         <div className="md:float-left md:contents block">
           <Link href="/" key="home">
             <span className="cursor-pointer text-3xl text-white">
-              chú bé ngu ngục
+              chú pé ngu ngục
             </span>
           </Link>
         </div>
