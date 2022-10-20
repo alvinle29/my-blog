@@ -12,7 +12,6 @@ class MyDocument extends Document {
         <Head>
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet"></link>
           <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-          {/* <meta name="viewport" content="width=device-width,minimum-scale=1, initial-scale=1" /> */}
         </Head>
         <body>
           <Main />

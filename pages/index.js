@@ -1,23 +1,23 @@
 import { PostCard, Categories, PostWidget, MyInfo, FeaturedPosts } from '../components';
 import { getPosts } from '../services';
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
 
 export default function Home({ posts }) {
-  const PostCardTest = dynamic(() => import("../components/PostCard"), {
-    ssr: false,
-  });
 
   return (
     <div className="container mx-auto px-10 mb-8">
+      <Head>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <title>chú pé ngu ngục</title>
+        <meta name="viewport" content="width=device-width,minimum-scale=1, initial-scale=1" /> 
+      </Head>
       <FeaturedPosts />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
           {posts.map((post, index) => (
             <PostCard key={index} post={post.node} />
           ))}
-          
-          {/*<PostCardTest key={index} post={post.node} />*/}
+
         </div>
         <div className="lg:col-span-4 col-span-1">
           <MyInfo />
