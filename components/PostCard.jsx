@@ -53,4 +53,4 @@ const PostCard = ({ post }) => {
   )
 }
 
-export default dynamic(() => Promise.resolve(PostCard), { ssr: false });
+export default PostCard
