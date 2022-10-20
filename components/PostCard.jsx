@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import Link from "next/link"
+import dynamic from 'next/dynamic'
 
 const PostCard = ({ post }) => {
 
@@ -52,4 +53,4 @@ const PostCard = ({ post }) => {
   )
 }
 
-export default PostCard
+export default dynamic(() => Promise.resolve(PostCard), { ssr: false });
