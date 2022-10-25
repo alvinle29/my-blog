@@ -1,5 +1,5 @@
-import { PostCard, Categories, PostWidget, MyInfo, FeaturedPosts } from '../components';
-import { getPosts } from '../services';
+import { PostCard, Categories, PostWidget, MyInfo, FeaturedPosts } from '../components'
+import { getPosts } from '../services'
 import Head from 'next/head'
 
 export default function Home({ posts }) {
@@ -7,7 +7,7 @@ export default function Home({ posts }) {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <title>chú pé ngu ngục</title>
         <meta name="viewport" content="width=device-width,minimum-scale=1, initial-scale=1" /> 
       </Head>

@@ -1,9 +1,8 @@
-import Head from "next/head";
-import { PostCard, Categories, PostWidget } from '../../components';
-import AboutMeInfo from "../../components/AboutMeInfo";
-import { getPosts } from '../../services';
+import Head from "next/head"
+import { Categories, PostWidget } from '../../components'
+import AboutMeInfo from "../../components/AboutMeInfo"
 
-export default function AboutMe({ posts }) {
+export default function AboutMe() {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
@@ -23,14 +22,5 @@ export default function AboutMe({ posts }) {
       </div>
     </div>
   );
-}
-
-// Fetch data at build time
-export async function getStaticProps() {
-  const posts = (await getPosts()) || [];
-
-  return {
-    props: { posts },
-  };
 }
 
