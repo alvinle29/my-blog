@@ -90,7 +90,7 @@ const CommentsForm = ({ slug }) => {
         >
           Post Comment
         </button>
-        {showSuccessMessage && <span className="text-l float-left font-semibold mt-3 text-green-300">Comment Submitted for Review.</span>}
+        {showSuccessMessage && <span className="text-l float-right relative font-semibold mt-3 text-green-300">Comment Submitted for Review.</span>}
       </div>
     </div>
   )
