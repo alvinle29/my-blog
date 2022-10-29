@@ -186,6 +186,22 @@ export const getComments = async (slug) => {
   return result.comments
 }
 
+export const getReplies = async (comment) => {
+  const query = gql`
+    query GetReplies($slug: String!) {
+      comments(where: {comment: {comment: $comment}}) {
+        name
+        createdAt
+        comment
+      }
+    }
+  `
+
+  const result = await request(graphqlAPI, query, { comment })
+
+  return result.comments
+}
+
 export const getCategoryPost = async (slug) => {
   const query = gql`
     query GetCategoryPost($slug: String!) {

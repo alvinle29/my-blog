@@ -1,14 +1,16 @@
 import React, { useRef, useState } from 'react'
 
 const Subscription = () => {
-  const inputRef = useRef(null)
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const [email, setEmail] = useState('')
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
 
-  const subscribeUser = async (e) => {
+  const Subscribe = async (e) => {
     e.preventDefault()
-    const result = await fetch('/api/subscribeUser', {
+
+    const res = await fetch('/api/subscribe', {
       body: JSON.stringify({
-        email: inputRef.current.value,
+        email: email,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -16,31 +18,33 @@ const Subscription = () => {
       method: 'POST',
     })
 
-    if (e.cancelable) {
-      setShowSuccessMessage(true)
-
-      setTimeout(() => {
-        setShowSuccessMessage(false)
-      }, 4000)
-
-      return result.json()
+    const { error, message } = await res.json()
+    if (error) {
+      setError(error)
+    } else {
+      setSuccess(message)
     }
   }
-  
+
+  const changeEmail = (event) => {
+    const email = event.target.value
+    setEmail(email)
+  }
+
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
       <h3 className="text-xl mb-4 font-semibold border-b pb-4">
         nhận thông báo bài viết mới
       </h3>
-      <div className="flex flex-wrap" onSubmit={subscribeUser}>
+      <div className="flex flex-wrap" onSubmit={Subscribe}>
         <form className="relative">
           <input
             aria-label="Email for newsletter"
             placeholder="Enter your email address"
             type="email"
             autoComplete="email"
-            ref={inputRef}
             required
+            onChange={changeEmail}
             className="py-3 px-0 text-md bg-transparent w-10/12 text-gray-900 border-b-2 border-gray-400 dark:border-gray-400 dark:text-white focus:border-brand focus-visible:outline-none"
           />
           <button
@@ -49,7 +53,16 @@ const Subscription = () => {
           >
             Subscribe
           </button>
-          {showSuccessMessage && <span className="text-md float-left relative font-medium mt-5 text-green-300">Email Submitted! You will receive an email in your inbox.</span>}
+          {success
+            ?
+            <span className="text-md float-left relative font-medium mt-5 text-green-300">
+              Email Submitted! You will receive an email in your inbox.
+            </span>
+            :
+            <span className="text-md float-left relative font-medium mt-5 text-red-800">
+              {error}
+            </span>
+          }
         </form>
       </div>
     </div >
