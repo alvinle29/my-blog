@@ -1,11 +1,12 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 const Subscription = () => {
-  const inputRef = useRef(null);
+  const inputRef = useRef(null)
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
 
   const subscribeUser = async (e) => {
     e.preventDefault()
-    const res = await fetch('/api/subscribeUser', {
+    const result = await fetch('/api/subscribeUser', {
       body: JSON.stringify({
         email: inputRef.current.value,
       }),
@@ -14,15 +15,25 @@ const Subscription = () => {
       },
       method: 'POST',
     })
-  }
 
+    if (e.cancelable) {
+      setShowSuccessMessage(true)
+
+      setTimeout(() => {
+        setShowSuccessMessage(false)
+      }, 4000)
+
+      return result.json()
+    }
+  }
+  
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
       <h3 className="text-xl mb-4 font-semibold border-b pb-4">
         nhận thông báo bài viết mới
       </h3>
-      <div className="flex flex-wrap">
-        <form className="relative" onSubmit={subscribeUser}>
+      <div className="flex flex-wrap" onSubmit={subscribeUser}>
+        <form className="relative">
           <input
             aria-label="Email for newsletter"
             placeholder="Enter your email address"
@@ -38,6 +49,7 @@ const Subscription = () => {
           >
             Subscribe
           </button>
+          {showSuccessMessage && <span className="text-md float-left relative font-medium mt-5 text-green-300">Email Submitted! You will receive an email in your inbox.</span>}
         </form>
       </div>
     </div >
