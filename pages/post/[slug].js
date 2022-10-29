@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import { PostDetail, Categories, PostWidget, Comments, CommentsForm, Loader, AdjacentPosts } from '../../components'
+import { PostDetail, Categories, PostWidget, Comments, CommentsForm, Loader, AdjacentPosts, Subscription } from '../../components'
 import { getPosts, getPostDetails } from '../../services'
 
 const PostDetails = ({ post }) => {
@@ -31,6 +31,7 @@ const PostDetails = ({ post }) => {
             <div className="relative lg:sticky top-8">
               <PostWidget slug={post.slug} categories={post.categories.map((category) => category.slug)} />
               <Categories />
+              <Subscription />
             </div>
           </div>
         </div>
