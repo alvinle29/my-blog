@@ -4,6 +4,7 @@ import parse from 'html-react-parser'
 
 import { getComments, getReplies } from '../services'
 import Replies from "./Replies"
+import RepliesForm from "./RepliesForm"
 
 const Comments = ({ slug }) => {
   const [comments, setComments] = useState([])
@@ -32,7 +33,8 @@ const Comments = ({ slug }) => {
                 {moment(comment.createdAt).format('MMM DD, YYYY')}
               </p>
               <p className="whitespace-pre-line text-gray-600 w-full">{parse(comment.comment)}</p>
-              <Replies comment={comment.comment}/>
+              <Replies comment={comment.comment} />
+              <RepliesForm />
             </div>
           ))}
         </div>

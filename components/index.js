@@ -15,3 +15,5 @@ export {default as AdjacentPostCard } from './AdjacentPostCard'
 export {default as AdjacentPosts } from './AdjacentPosts'
 export {default as Subscription } from './Subscription'
 export {default as Replies } from './Replies'
+export {default as RepliesForm } from './RepliesForm'
+
