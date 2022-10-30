@@ -35,6 +35,6 @@ export default async (req, res) => {
     })
   } catch (err) {
 
-    return res.status(500).json({ error: err.message || error.toString() })
+    return res.status(500).json({ error: err.message || err.toString() })
   }
 }
