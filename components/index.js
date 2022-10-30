@@ -14,4 +14,4 @@ export {default as FeaturedPosts } from './FeaturedPosts'
 export {default as AdjacentPostCard } from './AdjacentPostCard'
 export {default as AdjacentPosts } from './AdjacentPosts'
 export {default as Subscription } from './Subscription'
-
+export {default as Replies } from './Replies'
