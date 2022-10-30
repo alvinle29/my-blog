@@ -13,8 +13,8 @@ export default async function replies(req, res) {
   })
 
   const query = gql`
-    mutation CreateComment($name: String!, $email: String!, $reply: String!, $comment: String!){
-      createComment(data: {name: $name, email: $email, reply: $reply, comment: { connect: { comment: $comment } } }) { id }
+    mutation CreateReply($name: String!, $email: String!, $reply: String!, $commentId: ID!){
+      createReply(data: {name: $name, email: $email, reply: $reply, comment: { connect: { id: $commentId } } }) { id }
     }
   `
   const result = await graphQLClient.request(query, req.body)

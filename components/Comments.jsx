@@ -36,7 +36,7 @@ const Comments = ({ slug }) => {
               <p className="whitespace-pre-line text-gray-600 w-full">{parse(comment.comment)}</p>
               <div className="" onClick={() => setReplyState(!replyState)}>Reply</div>
               <Replies comment={comment.comment} />
-              {replyState && (<RepliesForm />)}
+              {replyState && (<RepliesForm commentId={comment.id} />)}
             </div>
           ))}
         </div>
