@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import moment from "moment"
 import parse from 'html-react-parser'
 
-import { getComments, getReplies } from '../services'
+import { getComments } from '../services'
 import Replies from "./Replies"
 import RepliesForm from "./RepliesForm"
 
@@ -34,7 +34,8 @@ const Comments = ({ slug }) => {
                 {moment(comment.createdAt).format('MMM DD, YYYY')}
               </p>
               <p className="whitespace-pre-line text-gray-600 w-full">{parse(comment.comment)}</p>
-              <div className="" onClick={() => setReplyState(!replyState)}>Reply</div>
+              <div className="cursor-pointer text-sm text-pink-600 mt-2" onClick={() => setReplyState(!replyState)}>Reply</div>
+
               <Replies comment={comment.comment} />
               {replyState && (<RepliesForm commentId={comment.id} />)}
             </div>

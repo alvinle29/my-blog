@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import moment from "moment"
 
 import { getReplies } from "../services"
+import RepliesForm from "./RepliesForm"
 
 const Replies = ({ comment }) => {
   const [replies, setReplies] = useState([])
+  const [replyState, setReplyState] = useState(false)
 
   useEffect(() => {
     getReplies(comment)
@@ -25,6 +27,8 @@ const Replies = ({ comment }) => {
                 {moment(reply.createdAt).format('MMM DD, YYYY')}
               </p>
               <p className="whitespace-pre-line text-gray-600 w-full">{reply.reply}</p>
+              <div className="cursor-pointer text-sm text-pink-600 mt-2" onClick={() => setReplyState(!replyState)}>Reply</div>
+              {replyState && (<RepliesForm commentId={comment.id} />)}
             </div>
           ))}
         </div>

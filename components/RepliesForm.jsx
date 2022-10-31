@@ -66,7 +66,7 @@ const RepliesForm = ({ commentId }) => {
         >
           Post
         </button>
-        {/* {showSuccessMessage && <span className="text-l float-right relative font-semibold mt-3 text-green-300">Comment Submitted for Review.</span>} */}
+        {showSuccessMessage && <span className="text-l float-right relative font-semibold mt-3 text-green-300">Replies Submitted for Review.</span>}
       </div>
     </div>
   )
