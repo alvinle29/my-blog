@@ -19,39 +19,46 @@ const Header = () => {
 
   return (
     <div className="container mx-auto px-10 mb-8">
-      <div className="border-b w-full inline-block border-white py-7">
+      <div className="border-b w-full inline-block border-white py-7 items-center">
         <div className="md:float-left contents block">
-          <Link href="/" key="home">
-            <span className="cursor-pointer text-3xl text-white">
-              chú pé ngu ngục
-            </span>
-          </Link>
+          <div className="float-left mt-3">
+            <Link href="/" key="home">
+              <span className="cursor-pointer md:text-3xl text-xl text-white">
+                chú pé ngu ngục
+              </span>
+            </Link>
+          </div>
+          <div className="md:hidden float-right">
+            <button
+              className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+              onClick={() => setNavbar(!navbar)}
+            >
+              {navbar ? (
+                <Image
+                  src="/close-icon.svg"
+                  width={30}
+                  height={30}
+                  alt="logo"
+                />
+              ) : (
+                <Image
+                  src="/menu-icon.svg"
+                  width={30}
+                  height={30}
+                  alt="logo"
+                  className="focus:border-none active:border-none"
+                />
+              )}
+            </button>
+          </div>
         </div>
-        <div className="md:hidden float-right relative">
-          <button
-            className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
-            onClick={() => setNavbar(!navbar)}
-          >
-            {navbar ? (
-              <Image src="/close-icon.svg" width={30} height={30} alt="logo" />
-            ) : (
-              <Image
-                src="/menu-icon.svg"
-                width={30}
-                height={30}
-                alt="logo"
-                className="focus:border-none active:border-none"
-              />
-            )}
-          </button>
-        </div>
-        <div className="hidden md:float-left md:contents">
+        <div className="hidden md:contents">
           <Link href="/aboutme" key="aboutme">
-            <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">
+            <span className="md:float-right mt-4 align-middle text-white ml-4 font-semibold cursor-pointer">
               About Me
             </span>
           </Link>
-          <Menu as="div" className="relative md:float-right">
+          <Menu as="div" className="relative md:float-right mt-2">
             <Menu.Button
               key="blogs"
               className="mt-2 align-middle text-white ml-4 font-semibold cursor-pointer"
@@ -116,7 +123,7 @@ const Header = () => {
           <ul className="md:hidden h-screen md:h-auto items-center justify-center md:flex ">
             <li className="pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0 hover:bg-white  border-white  md:hover:text-white md:hover:bg-transparent">
               <Link href="/aboutme">
-                <a
+                <a 
                   onClick={() => {
                     setNavbar(!navbar);
                   }}
