@@ -1,10 +1,11 @@
 import React from "react";
 import moment from "moment";
+
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 const PostDetail = ({ post }) => {
-  const images = []
+  const images = [];
 
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
@@ -49,7 +50,7 @@ const PostDetail = ({ post }) => {
           </h4>
         );
       case "image":
-        images.push({original: obj.src, thumbnail:obj.src})
+        images.push({ original: obj.src, thumbnail: obj.src });
         return (
           <img
             key={index}
@@ -112,7 +113,9 @@ const PostDetail = ({ post }) => {
           );
           return getContentFragment(index, children, typeObj, typeObj.type);
         })}
-        <ImageGallery items={images} showPlayButton={false} />
+        {images.length == 0 ? null : (
+          <ImageGallery items={images} showPlayButton={false} />
+        )}
       </div>
     </div>
   );
