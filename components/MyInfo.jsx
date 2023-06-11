@@ -14,7 +14,7 @@ const MyInfo = () => {
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
       <Link href={`/aboutme`}>
-        <h3 className="text-xl mb-4 font-semibold border-b pb-4 cursor-pointer">
+        <h3 className="md:text-xl text-base mb-4 font-semibold border-b pb-4 cursor-pointer">
           tớ là ai ?
         </h3>
       </Link>

@@ -33,7 +33,7 @@ const Subscription = () => {
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
-      <h3 className="text-xl mb-4 font-semibold border-b pb-4">
+      <h3 className="md:text-xl text-base mb-4 font-semibold border-b pb-4">
         nhận thông báo bài viết mới
       </h3>
       <div className="flex flex-wrap" onSubmit={Subscribe}>
