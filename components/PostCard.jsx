@@ -13,13 +13,13 @@ const PostCard = ({ post }) => {
           className="object-center absolute h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg"
         />
       </div>
-      <h1 className="transition duration-700 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
+      <h1 className="transition duration-700 text-center md:mb-8 mb-6 cursor-pointer hover:text-pink-600 md:text-3xl text-2xl font-semibold">
         <Link href={`/post/${post.slug}`}>
           {post.title}
         </Link>
       </h1>
-      <div className="bloc lg:flex text-center items-center justify-center mb-8 w-full">
-        <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
+      <div className="bloc lg:flex text-center items-center justify-center md:mb-8 mb-6 w-full">
+        <div className="flex items-center justify-center md:mb-4 mb-6 lg:mb-0 w-full lg:w-auto mr-8">
           <img
             alt={post.author.name}
             height="30px"
@@ -27,7 +27,7 @@ const PostCard = ({ post }) => {
             className="align-middle rounded-full"
             src={post.author.photo.url}
           />
-          <p className="inline align-middle text-gray-700 ml-2 text-lg">{post.author.name}</p>
+          <p className="inline align-middle text-gray-700 ml-2 md:text-lg text-base">{post.author.name}</p>
         </div>
         <div className="font-medium text-gray-700">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,12 +38,12 @@ const PostCard = ({ post }) => {
           </span>
         </div>
       </div>
-      <p className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8">
+      <p className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 md:mb-8 mb-6 md:text-base text-sm">
         {post.excerpt}
       </p>
       <div className="text-center">
         <Link href={`/post/${post.slug}`}>
-          <p className="transition duration-500 transform hover:-translate-y-1 inline-block bg-pink-500 text-lg font-medium rounded-full text-white mb-3 px-8 py-3 cursor-pointer">
+          <p className="transition duration-500 transform hover:-translate-y-1 inline-block bg-pink-500 text-lg font-medium rounded-full text-white md:mb-3 mb-6 px-8 py-3 cursor-pointer">
             Continue Reading
           </p>
         </Link>
