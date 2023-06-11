@@ -75,8 +75,8 @@ const PostDetail = ({ post }) => {
         />
       </div>
       <div className="px-4 lg:px-0">
-        <div className="flex items-center mb-8 w-full">
-          <div className="flex items-center mb-4 lg:mb-0 w-full lg:w-auto md:mr-8">
+        <div className="flex items-center mb-8">
+          <div className="flex items-center mb-4 mb-0 lg:w-auto md:mr-8 mr-5">
             <img
               alt={post.author.name}
               height="30px"
@@ -103,7 +103,9 @@ const PostDetail = ({ post }) => {
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            <span>{moment(post.createdAt).format("MMM DD, YYYY")}</span>
+            <p className="inline align-middle text-gray-700 md:text-lg text-sm">
+              {moment(post.createdAt).format("MMM DD, YYYY")}
+            </p>
           </div>
         </div>
         <h1 className="mb-8 md:text-3xl text-xl font-semibold">{post.title}</h1>
