@@ -5,7 +5,7 @@ import Head from 'next/head'
 export default function Home({ posts }) {
 
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="container mx-auto md:px-10 px-4 mb-8">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <title>chú pé ngu ngục</title>

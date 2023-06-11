@@ -121,9 +121,9 @@ const Header = () => {
           }`}
         >
           <ul className="md:hidden h-screen md:h-auto items-center justify-center md:flex ">
-            <li className="pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0 hover:bg-white  border-white  md:hover:text-white md:hover:bg-transparent">
+            <li className="pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0 hover:bg-white  border-white  hover:text-white hover:bg-transparent">
               <Link href="/aboutme">
-                <a 
+                <a
                   onClick={() => {
                     setNavbar(!navbar);
                   }}
@@ -134,7 +134,7 @@ const Header = () => {
             </li>
             {categories.map((category) => (
               <li
-                className="pb-6 text-xl text-white py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-white  border-white md:hover:text-white md:hover:bg-transparent"
+                className="pb-6 text-xl text-white py-2 mt-2 md:px-6 text-center border-b-2 md:border-b-0 hover:bg-white  border-white hover:text-white hover:bg-transparent"
                 key={category.name}
               >
                 <Link href={`/category/${category.slug}`}>
